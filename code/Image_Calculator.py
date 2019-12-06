@@ -3,8 +3,8 @@ __author__ = "shinjawkwang@naver.com"
 
 # 사용 조건
 # 에브리타임 앱 내의 시간표 "이미지로 저장" 기능으로 저장한 시간표 이미지를 요합니다.
-# "화이트(기본)" 테마의 시간표 이미지만 사용 가능합니다. (추후 업데이트.. 할 수 있을까..)
-# 월~금요일까지 기록된 시간표만 지원합니다 (동아리에 토욜시간표도 추가하는 사람이 생기면 그 때 수정 예정)
+# "화이트(기본)" 테마의 시간표 이미지만 사용 가능합니다.
+# 월~금요일까지 기록된 시간표만 지원합니다 
 
 
 import glob
@@ -17,6 +17,7 @@ import numpy as np
 
 # 칸수의 case를 고려하기 위해, 아래 method의 rows 리스트를 이용해 칸 수를 조정하고자 한다
 # 맨 밑에 회색줄의 위치가 기록된 경우, 그 부분을 삭제하는 method이다
+
 def deleteBottom(rows, height):
     if height - rows[0] < 10:
         del rows[0]
@@ -25,6 +26,7 @@ def deleteBottom(rows, height):
 
 # (칸 사이 거리, 칸의 수)로 구성된 list를 return
 # 칸 수의 case를 고려하는 method : deleteBottom
+
 def CalcRows(files):
     matrix = []
     for file in files:
@@ -231,7 +233,7 @@ def Calibration(binary):
 def PrintResult(binary):
     flag = True
     std = 0x80000000000000000000000000000000000000000000000000000000000000000000000000000000
-    for i in range(5): # 월화수목금; 추후 update
+    for i in range(5): # 월화수목금
         if i == 0:
             print("\n<<< 월요일 가능한 시간 목록 >>>")
         elif i == 1:
@@ -295,19 +297,14 @@ def PrintResult(binary):
 
 
 def main():
-    print("# Welcome to Everytime Schedule MAkEr")
-    # Enter Your Path
-    # target_dir = input("INPUT PATH : ")
-    # == Default Path in BOOTY, Windows ============
-    # target_dir = "C:\\Users\\Shinjaekwang\\Dropbox\\Code\\2018\\LFDM_PYthon\\Images\\"
-    # == Default Path in shinjaekwang, Mac OS X ====
+    print("----결과------")
+    # 경로 조정해주셔야 합니다.
     target_dir = "C:/Users/woowoo/Downloads/everytime/"
-    # target_dir = input("이미지 파일이 담긴 폴더 경로를 입력하십시오: ")
-    # ==============================================
     files = sorted(glob.glob(target_dir + "*.jpg"))
-    print(files)
+
     matrix = CalcRows(files)
     delete(files, target_dir)
+    
     path = target_dir + "Complete/"
     files = sorted(glob.glob(path + "*.jpg"))
     

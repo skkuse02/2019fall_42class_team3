@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 __author__ = "shinjawkwang@naver.com"
-# 이 프로그램은 악의 꽃 시간표 조정을 위해 제작한 프로그램입니다.
+# 사용 조건
 # 에브리타임 앱 내의 시간표 "이미지로 저장" 기능으로 저장한 시간표 이미지를 요합니다.
 # 배경색이 흰색 계열인 (회색도 안됨) 테마의 시간표 이미지만 사용 가능합니다.
 # 월요일 ~ 금요일의, 9시부터 5시까지의 시간표와 9시부터 10시까지 시간표만 사용 가능합니다.
@@ -13,7 +13,7 @@ import numpy as np
 
 
 # (세로 길이, 칸 사이 거리, 칸 수)로 구성된 list를 return
-# 칸 수의 case는 9칸, 14칸이므로, 두 가지 case만을 고려한 코드임을 알려드립니다.
+# 칸 수의 case는 9칸, 14칸이므로, 두 가지 case만을 고려함
 def CalcRowLevel(files):
     matrix = []
     for file in files:
@@ -66,6 +66,7 @@ def CalcRowLevel(files):
         # 그래서 rows 원소들이 칸 수 보다 하나 더 많이 생기는 경우가 있다
         # 이 경우를 고려하기 위함 (참고로, 맨 위에 줄이 있는 시간표는 내가 본 시간표 중엔 없었다)
         # 맨 밑에 회색줄이 있는 경우
+        
         # ===== 시간표 칸수가 다른 경우, 여기서 9나 14를 수정(혹은 다른 수를 추가)해야 합니다 =====
         if len(rows) == 9 or len(rows) == 14:
         # =======================================================================
@@ -100,12 +101,11 @@ def CalcMax(files, cnt):
 
 # 가장 큰 칸 사이 거리, 가장 큰 column 값을 가지고 이미지를 리사이징한다.
 # 한 칸 높이가 같도록, 가로 길이가 모두 같도록.
-# 맨 윗 칸 때문에 약간의 오류가 발생할 수 있다. 맨 윗 부분을 잘라내야 할까? ==> 잘라냈다!
 def ResizeImage(files, matrix, maxCol, maxRow, target_dir):
     i = 0
     for file in files:
         img = cv2.imread(file, cv2.IMREAD_GRAYSCALE)
-        # resize 함수 => (이미지, ?(뭐더라), 가로 크기, 세로 크기, ??)
+        # resize 함수 => (이미지, ?, 가로 크기, 세로 크기, ??)
         img2 = cv2.resize(img, None, fx= 1.5*maxCol/img.shape[1], fy=maxRow/matrix[i][1],
                           interpolation=cv2.INTER_CUBIC + cv2.INTER_LINEAR)
         cv2.imwrite(target_dir + '/Resize/' + str(i) + '_rs.jpg', img2)
@@ -192,14 +192,9 @@ def addImg(files, target_dir, maxRow, maxCol):
 
 def main():
     print("# Welcome to Everytime Schedule MAkEr")
-    # Enter Your Path
-    # target_dir = input("INPUT PATH : ")
-    # == Default Path in BOOTY, Windows ============
-    # target_dir = "C:\\Users\\Shinjaekwang\\Dropbox\\Code\\2018\\LFDM_PYthon\\Images\\"
-    # == Default Path in shinjaekwang, Mac OS X ====
+    #경로 수정하셔야 됩니다
     target_dir = "/Users/woowoo/Downloads/everytime/"
-    # target_dir = input("이미지 파일이 담긴 폴더 경로를 입력하십시오: ")
-    # ==============================================
+
     files = glob.glob(target_dir + "*.jpg")
     print(files)
 
