@@ -1,0 +1,54 @@
+{
+  "intent": {
+    "id": "5de3ccb3b617ea0001cb0792",
+    "name": "상품 일반 등록",
+    "extra": {
+      "reason": {
+        "code": 0,
+        "message": "OK"
+      }
+    }
+  },
+  "userRequest": {
+    "timezone": "Asia/Seoul",
+    "params": {
+      "surface": "Kakaotalk.plusfriend"
+    },
+    "block": {
+      "id": "5de3ccb3b617ea0001cb0792",
+      "name": "상품 일반 등록"
+    },
+    "utterance": "일반 등록",
+    "lang": "ko",
+    "user": {
+      "id": "f54592c5bad8367df4005a4750234fd828a6f81f5c5f3eb784cc2e7391623e1dce",
+      "type": "botUserKey",
+      "properties": {
+        "botUserKey": "f54592c5bad8367df4005a4750234fd828a6f81f5c5f3eb784cc2e7391623e1dce",
+        "plusfriendUserKey": "MtZyAAvkgd3N",
+        "bot_user_key": "f54592c5bad8367df4005a4750234fd828a6f81f5c5f3eb784cc2e7391623e1dce",
+        "plusfriend_user_key": "MtZyAAvkgd3N"
+      }
+    }
+  },
+  "contexts": [],
+  "bot": {
+    "id": "5d9fd78792690d0001a463d0!",
+    "name": "대학교 중고거래"
+  },
+  "action": {
+    "name": "스킬 테스트",
+    "clientExtra": {},
+    "params": {
+      "item_category": "의류"
+    },
+    "id": "5dda19bf8192ac00011a2918",
+    "detailParams": {
+      "item_category": {
+        "origin": "의류",
+        "value": "의류",
+        "groupName": ""
+      }
+    }
+  }
+}

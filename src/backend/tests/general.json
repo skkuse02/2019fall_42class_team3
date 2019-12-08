@@ -1,0 +1,54 @@
+{
+  "intent": {
+    "id": "xxxa1yx0dav4s5irwsp37vkm",
+    "name": "블록이름"
+  },
+  "userRequest": {
+    "timezone": "Asia/Seoul",
+    "params": {
+      "ignoreMe": "true"
+    },
+    "block": {
+      "id": "xxxa1yx0dav4s5irwsp37vkm",
+      "name": "블록이름"
+    },
+    "utterance": "발화내용",
+    "lang": null,
+    "user": {
+      "id": "f54592c5bad8367df4005a4750234fd828a6f81f5c5f3eb784cc2e7391623e1dce",
+      "type": "accountId",
+      "properties": {}
+    }
+  },
+  "bot": {
+    "id": "5d9fd78792690d0001a463d0",
+    "name": "봇이름"
+  },
+  "action": {
+    "name": "odqlppk74q",
+    "clientExtra": null,
+    "params": {
+      "testkey1": "value_test_1",
+      "testkey2": "value_test_2",
+      "kestkey3": "value_test_3"
+    },
+    "id": "go86vsedc60qgufvwmg6jfyt",
+    "detailParams": {
+      "testkey1": {
+        "origin": "value_test_1",
+        "value": "value_test_1",
+        "groupName": ""
+      },
+      "testkey2": {
+        "origin": "value_test_2",
+        "value": "value_test_2",
+        "groupName": ""
+      },
+      "kestkey3": {
+        "origin": "value_test_3",
+        "value": "value_test_3",
+        "groupName": ""
+      }
+    }
+  }
+}

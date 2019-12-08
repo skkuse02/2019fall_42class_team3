@@ -1,0 +1,78 @@
+service: hakuhagu
+app: hakuhagu
+org: hakuhagu
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  stage: dev
+  region: ap-northeast-1
+
+functions:
+  welcome:
+    handler: handler.welcome
+    events:
+      - http:
+          path: welcome
+          method: post
+  userRegistration:
+    handler: handler.userRegistration
+    warmup:
+      enabled: true
+    events:
+      - http:
+          path: user/registration
+          method: post
+  userAuthentication:
+    handler: handler.userAuthentication
+    events:
+      - http:
+          path: user/authentication
+          method: get
+  userInformation:
+    handler: handler.userInformation
+    events:
+      - http:
+          path: user/information
+          method: post
+  itemRegistration:
+    handler: handler.itemRegistration
+    warmup:
+      enabled: true
+    events:
+      - http:
+          path: item/registration
+          method: post
+  itemList:
+    handler: handler.itemList
+    events:
+      - http:
+          path: item/list
+          method: post
+  itemSearchCategory:
+    handler: handler.itemSearchCategory
+    events:
+      - http:
+          path: item/search/category
+          method: post
+  itemSearchKeyword:
+    handler: handler.itemSearchKeyword
+    events:
+      - http:
+          path: item/search/keyword
+          method: post
+  qrcodeTest:
+    handler: handler.qrcodeTest
+    events:
+      - http:
+          path: qrcode
+          method: post
+  test:
+    handler: handler.test
+    events:
+      - http:
+          path: test
+          method: post
+
+plugins:
+  - serverless-plugin-warmup

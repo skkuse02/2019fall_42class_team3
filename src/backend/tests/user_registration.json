@@ -1,0 +1,79 @@
+{
+  "intent": {
+    "id": "5dc50c568192ac0001c5d1f0",
+    "name": "회원가입",
+    "extra": {
+      "reason": {
+        "code": 0,
+        "message": "OK"
+      }
+    }
+  },
+  "userRequest": {
+    "timezone": "Asia/Seoul",
+    "params": {
+      "surface": "Kakaotalk.plusfriend"
+    },
+    "block": {
+      "id": "5dc50c568192ac0001c5d1f0",
+      "name": "회원가입"
+    },
+    "utterance": "회원 가입",
+    "lang": "ko",
+    "user": {
+      "id": "f54592c5bad8367df4005a4750234fd828a6f81f5c5f3eb784cc2e7391623e1dce",
+      "type": "botUserKey",
+      "properties": {
+        "botUserKey": "f54592c5bad8367df4005a4750234fd828a6f81f5c5f3eb784cc2e7391623e1dce",
+        "plusfriendUserKey": "MtZyAAvkgd3N",
+        "bot_user_key": "f54592c5bad8367df4005a4750234fd828a6f81f5c5f3eb784cc2e7391623e1dce",
+        "plusfriend_user_key": "MtZyAAvkgd3N"
+      }
+    }
+  },
+  "contexts": [
+    {
+      "name": "item_register",
+      "lifespan": 3,
+      "ttl": 600,
+      "params": {}
+    }
+  ],
+  "bot": {
+    "id": "5d9fd78792690d0001a463d0!",
+    "name": "대학교 중고거래"
+  },
+  "action": {
+    "name": "userRegistration",
+    "clientExtra": {},
+    "params": {
+      "nickname": "test_nickname",
+      "school_name": "성균관대학교",
+      "school_mail": "yuneg11@gmail.com",
+      "timetable_image": "{\"privacyAgreement\":\"Y\",\"imageQuantity\":\"1\",\"secureUrls\":\"List(http://secure.kakaocdn.net/dna/c4iABg/K6aA06KJ2C/XXX/img_org.jpg?credential=Kq0eSbCrZgKIq51jh41Uf1jLsUh7VWcz&expires=1575445217&allow_ip=&allow_referer=&signature=vsp7am3PzYW9yEM24crIVkFxwuk%3D)\",\"expire\":\"1970-01-19T14:37:25+0900\"}"
+    },
+    "id": "5dda19bf8192ac00011a2918",
+    "detailParams": {
+      "nickname": {
+        "origin": "test_nickname",
+        "value": "test_nickname",
+        "groupName": ""
+      },
+      "school_name": {
+        "origin": "성균관대",
+        "value": "성균관대학교",
+        "groupName": ""
+      },
+      "school_mail": {
+        "origin": "yuneg11@gmail.com",
+        "value": "yuneg11@gmail.com",
+        "groupName": ""
+      },
+      "timetable_image": {
+        "origin": "List(http://secure.kakaocdn.net/dna/c4iABg/K6aA06KJ2C/XXX/img_org.jpg?credential=Kq0eSbCrZgKIq51jh41Uf1jLsUh7VWcz&expires=1575445217&allow_ip=&allow_referer=&signature=vsp7am3PzYW9yEM24crIVkFxwuk%3D)",
+        "value": "{\"privacyAgreement\":\"Y\",\"imageQuantity\":\"1\",\"secureUrls\":\"List(http://secure.kakaocdn.net/dna/c4iABg/K6aA06KJ2C/XXX/img_org.jpg?credential=Kq0eSbCrZgKIq51jh41Uf1jLsUh7VWcz&expires=1575445217&allow_ip=&allow_referer=&signature=vsp7am3PzYW9yEM24crIVkFxwuk%3D)\",\"expire\":\"1970-01-19T14:37:25+0900\"}",
+        "groupName": ""
+      }
+    }
+  }
+}

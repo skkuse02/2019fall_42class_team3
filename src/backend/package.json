@@ -1,0 +1,21 @@
+{
+  "name": "hakuhagu",
+  "version": "1.0.0",
+  "description": "SKKU SE Fall 2019 Team 3",
+  "main": "handler.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "hakuhagu",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.585.0",
+    "mysql": "^2.17.1",
+    "nodemailer": "^6.4.0",
+    "qrcode": "^1.4.4",
+    "sync-request": "^6.1.0"
+  },
+  "devDependencies": {
+    "serverless-plugin-warmup": "^4.7.1-rc.1"
+  }
+}

@@ -1,0 +1,131 @@
+{
+    "resource": "/user/authentication",
+    "path": "/user/authentication",
+    "httpMethod": "GET",
+    "headers": {
+        "Accept": "*/*",
+        "Accept-Encoding": "gzip, deflate",
+        "Cache-Control": "no-cache",
+        "CloudFront-Forwarded-Proto": "https",
+        "CloudFront-Is-Desktop-Viewer": "true",
+        "CloudFront-Is-Mobile-Viewer": "false",
+        "CloudFront-Is-SmartTV-Viewer": "false",
+        "CloudFront-Is-Tablet-Viewer": "false",
+        "CloudFront-Viewer-Country": "KR",
+        "Content-Type": "application/json",
+        "Host": "hk8fwoi2r9.execute-api.ap-northeast-1.amazonaws.com",
+        "Postman-Token": "0a783637-4766-4289-a0d8-507368f164af",
+        "User-Agent": "PostmanRuntime/7.20.1",
+        "Via": "1.1 3c8cd5cce4a577a3f5adee1e0b5810b2.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Id": "zlnTsOAh4W5JCowD9dzezYl3ao4HHH2CwSHhnvx5Ga1Jgjg-28FC4g==",
+        "X-Amzn-Trace-Id": "Root=1-5debd809-8810c3ec836d098cfb0d35cc",
+        "X-Forwarded-For": "59.18.228.140, 52.46.53.183",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https"
+    },
+    "multiValueHeaders": {
+        "Accept": [
+            "*/*"
+        ],
+        "Accept-Encoding": [
+            "gzip, deflate"
+        ],
+        "Cache-Control": [
+            "no-cache"
+        ],
+        "CloudFront-Forwarded-Proto": [
+            "https"
+        ],
+        "CloudFront-Is-Desktop-Viewer": [
+            "true"
+        ],
+        "CloudFront-Is-Mobile-Viewer": [
+            "false"
+        ],
+        "CloudFront-Is-SmartTV-Viewer": [
+            "false"
+        ],
+        "CloudFront-Is-Tablet-Viewer": [
+            "false"
+        ],
+        "CloudFront-Viewer-Country": [
+            "KR"
+        ],
+        "Content-Type": [
+            "application/json"
+        ],
+        "Host": [
+            "hk8fwoi2r9.execute-api.ap-northeast-1.amazonaws.com"
+        ],
+        "Postman-Token": [
+            "0a783637-4766-4289-a0d8-507368f164af"
+        ],
+        "User-Agent": [
+            "PostmanRuntime/7.20.1"
+        ],
+        "Via": [
+            "1.1 3c8cd5cce4a577a3f5adee1e0b5810b2.cloudfront.net (CloudFront)"
+        ],
+        "X-Amz-Cf-Id": [
+            "zlnTsOAh4W5JCowD9dzezYl3ao4HHH2CwSHhnvx5Ga1Jgjg-28FC4g=="
+        ],
+        "X-Amzn-Trace-Id": [
+            "Root=1-5debd809-8810c3ec836d098cfb0d35cc"
+        ],
+        "X-Forwarded-For": [
+            "59.18.228.140, 52.46.53.183"
+        ],
+        "X-Forwarded-Port": [
+            "443"
+        ],
+        "X-Forwarded-Proto": [
+            "https"
+        ]
+    },
+    "queryStringParameters": {
+        "userId": "testUserId",
+        "token": "yutydssdyfyguihioj"
+    },
+    "multiValueQueryStringParameters": {
+        "userId": [
+            "testUserId"
+        ],
+        "token": [
+            "yutydssdyfyguihioj"
+        ]
+    },
+    "pathParameters": null,
+    "stageVariables": null,
+    "requestContext": {
+        "resourceId": "9b008h",
+        "resourcePath": "/user/authentication",
+        "httpMethod": "GET",
+        "extendedRequestId": "EV6xcHInNjMFT7Q=",
+        "requestTime": "07/Dec/2019:16:49:13 +0000",
+        "path": "/dev/user/authentication",
+        "accountId": "087946850413",
+        "protocol": "HTTP/1.1",
+        "stage": "dev",
+        "domainPrefix": "hk8fwoi2r9",
+        "requestTimeEpoch": 1575737353130,
+        "requestId": "b85f7658-a202-4df2-b5f3-1bd0407c6ba6",
+        "identity": {
+            "cognitoIdentityPoolId": null,
+            "accountId": null,
+            "cognitoIdentityId": null,
+            "caller": null,
+            "sourceIp": "59.18.228.140",
+            "principalOrgId": null,
+            "accessKey": null,
+            "cognitoAuthenticationType": null,
+            "cognitoAuthenticationProvider": null,
+            "userArn": null,
+            "userAgent": "PostmanRuntime/7.20.1",
+            "user": null
+        },
+        "domainName": "hk8fwoi2r9.execute-api.ap-northeast-1.amazonaws.com",
+        "apiId": "hk8fwoi2r9"
+    },
+    "body": null,
+    "isBase64Encoded": false
+}
