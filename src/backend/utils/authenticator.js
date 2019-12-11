@@ -14,9 +14,9 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const generateQrcode = (url) => {
+const generateQrcode = (string) => {
   const path = "/tmp/qrcode.png";
-  qrcode.toFile(path, url);
+  qrcode.toFile(path, string);
   return path;
 };
 
@@ -32,6 +32,20 @@ const generateToken = (seed="") => {
   }
 
   return token;
+};
+
+const getContractQrcode = (userId, itemId) => {
+  const token = generateToken();
+  const info = JSON.stringify({
+    userId: userId,
+    itemId: itemId,
+    token: token
+  });
+  const qrcodePath = generateQrcode(info);
+  return {
+    token: token,
+    qrcodePath: qrcodePath
+  };
 };
 
 const generateMailAuthenticationUrl = (userId, token) => {
@@ -83,8 +97,8 @@ const sendAuthenticateMail = async (userId, userMail) => {
 };
 
 module.exports = {
-  generateQrcode,
   authenticateUser,
   authenticateMail,
-  sendAuthenticateMail
+  sendAuthenticateMail,
+  getContractQrcode
 }

@@ -1,11 +1,11 @@
 {
   "intent": {
-    "id": "5de3ccb3b617ea0001cb0792",
-    "name": "상품 일반 등록",
+    "id": "5decfa26ffa74800014b098e",
+    "name": "상품 상세 정보",
     "extra": {
       "reason": {
-        "code": 0,
-        "message": "OK"
+        "code": 101,
+        "message": "DIRECT_ID"
       }
     }
   },
@@ -15,10 +15,10 @@
       "surface": "Kakaotalk.plusfriend"
     },
     "block": {
-      "id": "5de3ccb3b617ea0001cb0792",
-      "name": "상품 일반 등록"
+      "id": "5decfa26ffa74800014b098e",
+      "name": "상품 상세 정보"
     },
-    "utterance": "일반 등록",
+    "utterance": "상세정보",
     "lang": "ko",
     "user": {
       "id": "f54592c5bad8367df4005a4750234fd828a6f81f5c5f3eb784cc2e7391623e1dce",
@@ -38,17 +38,11 @@
   },
   "action": {
     "name": "스킬 테스트",
-    "clientExtra": {},
-    "params": {
-      "item_category": "전자기기"
+    "clientExtra": {
+      "itemId": "ADzv0PtRQABCtd"
     },
+    "params": {},
     "id": "5dda19bf8192ac00011a2918",
-    "detailParams": {
-      "item_category": {
-        "origin": "전자기기",
-        "value": "전자기기",
-        "groupName": ""
-      }
-    }
+    "detailParams": {}
   }
 }

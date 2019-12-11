@@ -61,11 +61,65 @@ functions:
       - http:
           path: item/search/keyword
           method: post
-  qrcodeTest:
-    handler: handler.qrcodeTest
+  itemDetail:
+    handler: handler.itemDetail
     events:
       - http:
-          path: qrcode
+          path: item/detail
+          method: post
+  itemSellerContract:
+    handler: handler.itemSellerContract
+    events:
+      - http:
+          path: item/contract/seller
+          method: post
+  itemBuyerContract:
+    handler: handler.itemBuyerContract
+    events:
+      - http:
+          path: item/contract/buyer
+          method: post
+  itemDeleteWarning:
+    handler: handler.itemDeleteWarning
+    events:
+      - http:
+          path: item/delete/warning
+          method: post
+  itemDelete:
+    handler: handler.itemDelete
+    events:
+      - http:
+          path: item/delete
+          method: post
+  userOpenprofile:
+    handler: handler.userOpenprofile
+    events:
+      - http:
+          path: user/openprofile
+          method: post
+  userWithdrawWarning:
+    handler: handler.userWithdrawWarning
+    events:
+      - http:
+          path: user/withdraw/warning
+          method: post
+  userWithdraw:
+    handler: handler.userWithdraw
+    events:
+      - http:
+          path: user/withdraw
+          method: post
+  userReport:
+    handler: handler.userReport
+    events:
+      - http:
+          path: user/report
+          method: post
+  userContract:
+    handler: handler.userContract
+    events:
+      - http:
+          path: user/contract
           method: post
   test:
     handler: handler.test

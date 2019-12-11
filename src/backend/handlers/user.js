@@ -13,15 +13,13 @@ const registration = async (event) => {
   const nickname = parameters["nickname"].origin;
   const school_name = parameters["school_name"].value;
   const school_mail = parameters["school_mail"].origin;
-  const timetable_image = parameters["timetable_image"].origin;
-  const timetable = ""; // Todo: Process timetable_image and get JSON data
 
   if (authenticator.authenticateUser(userId) == true) {
     return responseTemplate.userRegistrationFail("이미 등록된 사용자입니다.");
   } else {
     const mail_success = await authenticator.sendAuthenticateMail(userId, school_mail);
     if (mail_success == true) {
-      const result = await database.registNewUser(userId, nickname, school_name, school_mail, timetable);
+      const result = await database.registNewUser(userId, nickname, school_name, school_mail);
       if (result.success == true) {
         return responseTemplate.userRegistrationSuccess(nickname);
       } else {
@@ -58,8 +56,71 @@ const information = async (event) => {
   }
 };
 
+const openprofile = async (event) => {
+  const userId = parser.getUserId(event);
+  const parameters = parser.getParameters(event);
+  const user_openprofile = parameters["user_openprofile"].origin;
+
+  const result = await database.setOpenprofile(userId, user_openprofile);
+  if (result.success == true) {
+    return responseTemplate.userOpenprofileSuccess(user_openprofile);
+  } else {
+    return responseTemplate.processFail("오픈프로필 등록 실패", "오픈프로필 등록에 실패하였습니다.");
+  }
+};
+
+const withdrawWarning = async (event) => {
+  return responseTemplate.userWithdrawWarning();
+};
+
+const withdraw = async (event) => {
+  const userId = parser.getUserId(event);
+  const extras = parser.getExtras(event);
+  const action = extras["action"];
+
+  if (action == "ok") {
+    const result = await database.deleteUser(userId);
+    if (result.success == true) {
+      return responseTemplate.userWithdrawOk();
+    } else {
+      return responseTemplate.processFail("회원 탈퇴 실패", "회원 탈퇴에 실패하였습니다.");
+    }
+  } else {
+    return responseTemplate.userWithdrawCancel();
+  }
+};
+
+const report = async (event) => {
+  const extras = parser.getExtras(event);
+  const targetUserId = extras["targetUserId"];
+  const targetNickname = extras["targetNickname"];
+
+  const result = await database.reportUser(targetUserId);
+  if (result.success == true) {
+    return responseTemplate.userReport(targetNickname);
+  } else {
+    return responseTemplate.processFail("신고 실패", "신고에 실패하였습니다.");
+  }
+};
+
+const contract = async (event) => {
+  const userId = parser.getUserId(event);
+
+  const contracts = await database.getTransaction(userId);
+  if (contracts == null) {
+    return responseTemplate.processFail("거래 기록 조회 실패", "거래 기록 조회에 실패하였습니다.");
+  } else {
+    return responseTemplate.userContract(contracts, userId);
+  }
+};
+
 module.exports = {
   registration,
   authentication,
-  information
+  information,
+  openprofile,
+  withdrawWarning,
+  withdraw,
+  report,
+  contract
 };

@@ -30,8 +30,9 @@ module.exports.verifyEmail = async (event) => {
 // Skill
 
 module.exports.welcome = async (event) => {
-  if (await checkAuth(event) == true) {
-    const response = responseTemplate.welcome();
+  const auth = await checkAuth(event);
+  if (auth != null) {
+    const response = responseTemplate.welcome(auth);
     console.log(response);
     return response;
   } else {
@@ -42,11 +43,11 @@ module.exports.welcome = async (event) => {
 
 module.exports.userRegistration = async (event) => {
   if (event.source === "serverless-plugin-warmup") {
-    console.log("WarmUP")
+    console.log("WarmUP");
     return;
   }
 
-  if (await checkAuth(event) == true) { // Avoid regist again
+  if (await checkAuth(event) != null) { // Avoid regist again
     console.log("Registration fail");
     return responseTemplate.userRegistrationFail("이미 가입되어 있습니다.");
   } else {
@@ -62,7 +63,7 @@ module.exports.userAuthentication = async (event) => {
 };
 
 module.exports.userInformation = async (event) => {
-  if (await checkAuth(event) == true) {
+  if (await checkAuth(event) != null) {
     const response = await userHandler.information(event);
     console.log(response);
     return response;
@@ -72,8 +73,68 @@ module.exports.userInformation = async (event) => {
   }
 };
 
+module.exports.userOpenprofile = async (event) => {
+  if (await checkAuth(event) != null) {
+    const response = await userHandler.openprofile(event);
+    console.log(response);
+    return response;
+  } else {
+    console.log("Auth fail");
+    return getAuthFailResponse();
+  }
+};
+
+module.exports.userWithdrawWarning = async (event) => {
+  if (await checkAuth(event) != null) {
+    const response = await userHandler.withdrawWarning(event);
+    console.log(response);
+    return response;
+  } else {
+    console.log("Auth fail");
+    return getAuthFailResponse();
+  }
+};
+
+module.exports.userWithdraw = async (event) => {
+  if (await checkAuth(event) != null) {
+    const response = await userHandler.withdraw(event);
+    console.log(response);
+    return response;
+  } else {
+    console.log("Auth fail");
+    return getAuthFailResponse();
+  }
+};
+
+module.exports.userReport = async (event) => {
+  if (await checkAuth(event) != null) {
+    const response = await userHandler.report(event);
+    console.log(response);
+    return response;
+  } else {
+    console.log("Auth fail");
+    return getAuthFailResponse();
+  }
+};
+
+module.exports.userContract = async (event) => {
+  if (await checkAuth(event) != null) {
+    const response = await userHandler.contract(event);
+    console.log(response);
+    return response;
+  } else {
+    console.log("Auth fail");
+    return getAuthFailResponse();
+  }
+};
+
 module.exports.itemRegistration = async (event) => {
-  if (await checkAuth(event) == true) {
+  if (event.source === "serverless-plugin-warmup") {
+    console.log("WarmUP");
+    return;
+  }
+
+  if (await checkAuth(event) != null) {
     const response = await itemHandler.registration(event);
     console.log(response);
     return response;
@@ -84,7 +145,7 @@ module.exports.itemRegistration = async (event) => {
 };
 
 module.exports.itemList = async (event) => {
-  if (await checkAuth(event) == true) {
+  if (await checkAuth(event) != null) {
     const response = await itemHandler.list(event);
     console.log(response);
     return response;
@@ -95,7 +156,7 @@ module.exports.itemList = async (event) => {
 };
 
 module.exports.itemSearchCategory = async (event) => {
-  if (await checkAuth(event) == true) {
+  if (await checkAuth(event) != null) {
     const response = await itemHandler.searchCategory(event);
     console.log(response);
     return response;
@@ -106,7 +167,7 @@ module.exports.itemSearchCategory = async (event) => {
 };
 
 module.exports.itemSearchKeyword = async (event) => {
-  if (await checkAuth(event) == true) {
+  if (await checkAuth(event) != null) {
     const response = await itemHandler.searchKeyword(event);
     console.log(response);
     return response;
@@ -116,9 +177,59 @@ module.exports.itemSearchKeyword = async (event) => {
   }
 };
 
-module.exports.qrcodeTest = async (event) => {
-  const re = await authenticator.generateQrcode("userId=awefoiewbuafwehweabu&itemId=eifbaif7382bvhdj&token=euhsnvjqifjekvne");
-  return builder.buildAWSResponse(re);
+module.exports.itemDetail = async (event) => {
+  if (await checkAuth(event) != null) {
+    const response = await itemHandler.detail(event);
+    console.log(response);
+    return response;
+  } else {
+    console.log("Auth fail");
+    return getAuthFailResponse();
+  }
+};
+
+module.exports.itemSellerContract = async (event) => {
+  if (await checkAuth(event) != null) {
+    const response = await itemHandler.sellerContract(event);
+    console.log(response);
+    return response;
+  } else {
+    console.log("Auth fail");
+    return getAuthFailResponse();
+  }
+};
+
+module.exports.itemBuyerContract = async (event) => {
+  if (await checkAuth(event) != null) {
+    const response = await itemHandler.buyerContract(event);
+    console.log(response);
+    return response;
+  } else {
+    console.log("Auth fail");
+    return getAuthFailResponse();
+  }
+};
+
+module.exports.itemDeleteWarning = async (event) => {
+  if (await checkAuth(event) != null) {
+    const response = await itemHandler.deleteWarning(event);
+    console.log(response);
+    return response;
+  } else {
+    console.log("Auth fail");
+    return getAuthFailResponse();
+  }
+};
+
+module.exports.itemDelete = async (event) => {
+  if (await checkAuth(event) != null) {
+    const response = await itemHandler.deleteOk(event);
+    console.log(response);
+    return response;
+  } else {
+    console.log("Auth fail");
+    return getAuthFailResponse();
+  }
 };
 
 module.exports.test = async (event) => {
