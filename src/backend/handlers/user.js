@@ -104,7 +104,11 @@ const report = async (event) => {
 };
 
 const contract = async (event) => {
-  const userId = parser.getUserId(event);
+  var userId = parser.getUserId(event);
+  const extras = parser.getExtras(event);
+  if ("targetUserId" in extras) {
+    userId = extras["targetUserId"];
+  }
 
   const contracts = await database.getTransaction(userId);
   if (contracts == null) {

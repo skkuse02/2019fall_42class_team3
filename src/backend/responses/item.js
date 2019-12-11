@@ -91,6 +91,7 @@ module.exports.itemDetail = (item, mode="list") => {
     if(item.openprofile) {
       resultButtons.push(builder.getButton("판매자 연결", "webLink", item.openprofile));
     }
+    resultButtons.push(builder.getButton("판매자 거래기록", "block", "판매자 거래기록", resource.userInfoContractListBlockId, {targetUserId: item.userId}));
     resultButtons.push(builder.getButton("신고", "block", "신고", resource.userReportBlockId, {targetUserId: item.userId, targetNickname: item.nickname}));
   }
   bodys.push(builder.getBasicCardBody(resultTitle, resultDescription, "", resultButtons));
